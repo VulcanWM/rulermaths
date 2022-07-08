@@ -1,5 +1,6 @@
 import random
 import trigonometry
+import algebra
 
 
 def side_from_angle_side_question(question_type=1):
@@ -47,4 +48,26 @@ def side_from_angle_side_question(question_type=1):
 
     func = trig_map.get((side_find, side_given))
     answer = func(angle, side_given_length)
+    return question, answer
+
+
+def x_on_both_sides_question():
+    x_side_1 = random.randint(2,10)
+    x_side_2 = random.randint(2,10)
+    while x_side_2 == x_side_1:
+        x_side_2 = random.randint(2, 10)
+    num_side_1 = random.randint(2, 10)
+    num_side_2 = random.randint(2, 10)
+    while num_side_2 == num_side_1:
+        num_side_2 = random.randint(2, 10)
+    answer = algebra.solve_x_on_both_sides(x_side_1, x_side_2, num_side_1, num_side_2)
+    sign_1 = "+"
+    sign_2 = "+"
+    if num_side_1 < 0:
+        sign_1 = "-"
+        num_side_1 = num_side_1 * -1
+    if num_side_2 < 0:
+        sign_2 = "-"
+        num_side_2 = num_side_2 * -1
+    question = f"Solve for x:\n{str(x_side_1)}x {sign_1} {str(num_side_1)} = {str(x_side_2)}x {sign_2} {str(num_side_2)}"
     return question, answer
