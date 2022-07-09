@@ -1,6 +1,13 @@
 import questions
 
 all_questions = {
+    "KS2": {
+        "Number": [
+                questions.linear_sequence_question(1),
+                questions.linear_sequence_question(2),
+                questions.linear_sequence_question(3)
+        ]
+    },
     "KS3": {
             "Number": [
                 questions.linear_sequence_question(1),

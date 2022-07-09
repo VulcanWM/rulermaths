@@ -1,6 +1,8 @@
 import random
 import trigonometry
 import algebra
+import fdp
+import number
 
 
 def side_from_angle_side_question(question_type=1):
@@ -70,7 +72,7 @@ def x_on_both_sides_question():
     if num_side_2 < 0:
         sign_2 = "-"
         num_side_2 = num_side_2 * -1
-    question = f"Solve for x:" \
+    question = f"Solve for x (to 2 decimal places):" \
                f"\n{str(x_side_1)}x {sign_1} {str(num_side_1)} = {str(x_side_2)}x {sign_2} {str(num_side_2)}"
     return question, answer
 
@@ -89,7 +91,7 @@ def linear_sequence_question(question_type=1):
     while other_num == 0:
         other_num = random.randint(-9, 9)
     if question_type == "1":
-        sequence = algebra.create_linear_sequence(n_num=n_num, other_num=other_num)
+        sequence = number.create_linear_sequence(n_num=n_num, other_num=other_num)
         question = f"Find the nth term of this sequence: {sequence}"
         sign = "+"
         if other_num < 0:
@@ -98,7 +100,7 @@ def linear_sequence_question(question_type=1):
         answer = f"{str(n_num)}n {sign} {str(other_num)}"
     elif question_type == "2":
         num = random.randint(20, 90)
-        answer = algebra.is_num_in_linear_sequence(num=num, n_num=n_num, other_num=other_num)
+        answer = number.is_num_in_linear_sequence(num=num, n_num=n_num, other_num=other_num)
         sign = "+"
         if other_num < 0:
             sign = "-"
@@ -114,7 +116,7 @@ def linear_sequence_question(question_type=1):
             end = "rd"
         else:
             end = "th"
-        answer = algebra.num_term_in_linear_sequence(num_term=num_term, n_num=n_num, other_num=other_num)
+        answer = number.num_term_in_linear_sequence(num_term=num_term, n_num=n_num, other_num=other_num)
         sign = "+"
         if other_num < 0:
             sign = "-"
@@ -129,12 +131,12 @@ def recurring_decimal_to_fraction_question(question_type=1):
         decimal = random.randint(2, 9)
         decimal = decimal / 10
         question = f"Convert {str(decimal)} recurring to a fraction."
-        answer = algebra.recurring_decimal_to_fraction(decimal)
+        answer = fdp.recurring_decimal_to_fraction(decimal)
     else:
         decimal = random.randint(20, 90)
         while decimal % 10 == 0:
             decimal = random.randint(20, 90)
         decimal = decimal / 100
         question = f"Convert {str(decimal)} recurring to a fraction."
-        answer = algebra.recurring_decimal_to_fraction(decimal)
+        answer = fdp.recurring_decimal_to_fraction(decimal)
     return question, answer
