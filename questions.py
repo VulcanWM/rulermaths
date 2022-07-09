@@ -52,8 +52,8 @@ def side_from_angle_side_question(question_type=1):
 
 
 def x_on_both_sides_question():
-    x_side_1 = random.randint(2,10)
-    x_side_2 = random.randint(2,10)
+    x_side_1 = random.randint(2, 10)
+    x_side_2 = random.randint(2, 10)
     while x_side_2 == x_side_1:
         x_side_2 = random.randint(2, 10)
     num_side_1 = random.randint(2, 10)
@@ -70,4 +70,52 @@ def x_on_both_sides_question():
         sign_2 = "-"
         num_side_2 = num_side_2 * -1
     question = f"Solve for x:\n{str(x_side_1)}x {sign_1} {str(num_side_1)} = {str(x_side_2)}x {sign_2} {str(num_side_2)}"
+    return question, answer
+
+
+def linear_sequence_question(question_type=1):
+    question_type = str(question_type)
+    if question_type == "1" or question_type == "3":
+        n_num = random.randint(-9, 9)
+        while n_num == 0:
+            n_num = random.randint(-9, 9)
+    else:
+        n_num = random.randint(2, 9)
+        while n_num == 0:
+            n_num = random.randint(2, 9)
+    other_num = random.randint(-9, 9)
+    while other_num == 0:
+        other_num = random.randint(-9, 9)
+    if question_type == "1":
+        sequence = algebra.create_linear_sequence(n_num=n_num, other_num=other_num)
+        question = f"Find the nth term of this sequence: {sequence}"
+        sign = "+"
+        if other_num < 0:
+            sign = "-"
+            other_num = other_num * -1
+        answer = f"{str(n_num)}n {sign} {str(other_num)}"
+    elif question_type == "2":
+        num = random.randint(20, 90)
+        answer = algebra.is_num_in_linear_sequence(num=num, n_num=n_num, other_num=other_num)
+        sign = "+"
+        if other_num < 0:
+            sign = "-"
+            other_num = other_num * -1
+        question = f"Is {str(num)} in the sequence: {str(n_num)}n {sign} {str(other_num)}?"
+    else:
+        num_term = random.randint(10, 30)
+        if num_term % 10 == 1:
+            end = "st"
+        elif num_term % 10 == 2:
+            end = "nd"
+        elif num_term % 10 == 3:
+            end = "rd"
+        else:
+            end = "th"
+        answer = algebra.num_term_in_linear_sequence(num_term=num_term, n_num=n_num, other_num=other_num)
+        sign = "+"
+        if other_num < 0:
+            sign = "-"
+            other_num = other_num * -1
+        question = f"What is the {str(num_term)}{end} number in the sequence: {str(n_num)}n {sign} {str(other_num)}?"
     return question, answer
