@@ -29,8 +29,7 @@ def num_term_in_linear_sequence(num_term: int, n_num: int, other_num: int):
     return term_value
 
 
-def recurring_decimal_to_fraction(decimal: int):
+def recurring_decimal_to_fraction(decimal: float):
     num_after_decimal = len(str(decimal).split(".")[1])
-    print(num_after_decimal)
     decimal = decimal * pow(10, num_after_decimal)
     return str(int(decimal)) + "/" + num_after_decimal * "9"

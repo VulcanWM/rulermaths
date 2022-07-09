@@ -4,29 +4,30 @@ import algebra
 
 
 def side_from_angle_side_question(question_type=1):
+    question_type = str(question_type)
     sides = ["opp", "adj", "hyp"]
     random.shuffle(sides)
     side_find = sides[0]
     side_given = sides[1]
     angle = random.randint(25, 70)
     side_given_length = random.randint(5, 15)
-    if str(question_type) == "1":
+    if question_type == "1":
         side_names = {"hyp": "BC", "opp": "AC", "adj": "AB"}
         right_angle = "<CAB"
         angle_given = "<ABC"
-    elif str(question_type) == "2":
+    elif question_type == "2":
         side_names = {"hyp": "BC", "opp": "AB", "adj": "AC"}
         right_angle = "<CAB"
         angle_given = "<ACB"
-    elif str(question_type) == "3":
+    elif question_type == "3":
         side_names = {"hyp": "AC", "opp": "AB", "adj": "BC"}
         right_angle = "<CBA"
         angle_given = "<BCA"
-    elif str(question_type) == "4":
+    elif question_type == "4":
         side_names = {"hyp": "AC", "opp": "BC", "adj": "AB"}
         right_angle = "<CBA"
         angle_given = "<BAC"
-    elif str(question_type) == "5":
+    elif question_type == "5":
         side_names = {"hyp": "AB", "opp": "AC", "adj": "BC"}
         right_angle = "<ACB"
         angle_given = "<ABC"
@@ -123,7 +124,8 @@ def linear_sequence_question(question_type=1):
 
 
 def recurring_decimal_to_fraction_question(question_type=1):
-    if question_type == 1:
+    question_type = str(question_type)
+    if question_type == "1":
         decimal = random.randint(2, 9)
         decimal = decimal / 10
         question = f"Convert {str(decimal)} recurring to a fraction."

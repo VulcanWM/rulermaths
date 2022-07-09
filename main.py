@@ -1,13 +1,8 @@
-import questions
 import random
+from sort_questions import all_questions
 
-question_type = random.randint(1, 6)
-print(questions.side_from_angle_side_question(question_type=question_type))
+all_functions = all_questions['KS3']
+random_topic = random.choice(list(all_functions.keys()))
+random_func = random.choice(all_functions[random_topic])
+print(random_func)
 
-print(questions.x_on_both_sides_question())
-
-question_type = random.randint(1, 3)
-print(questions.linear_sequence_question(question_type=question_type))
-
-question_type = random.randint(1, 2)
-print(questions.recurring_decimal_to_fraction_question(question_type=question_type))
