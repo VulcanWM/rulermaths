@@ -69,7 +69,8 @@ def x_on_both_sides_question():
     if num_side_2 < 0:
         sign_2 = "-"
         num_side_2 = num_side_2 * -1
-    question = f"Solve for x:\n{str(x_side_1)}x {sign_1} {str(num_side_1)} = {str(x_side_2)}x {sign_2} {str(num_side_2)}"
+    question = f"Solve for x:" \
+               f"\n{str(x_side_1)}x {sign_1} {str(num_side_1)} = {str(x_side_2)}x {sign_2} {str(num_side_2)}"
     return question, answer
 
 
@@ -118,4 +119,20 @@ def linear_sequence_question(question_type=1):
             sign = "-"
             other_num = other_num * -1
         question = f"What is the {str(num_term)}{end} number in the sequence: {str(n_num)}n {sign} {str(other_num)}?"
+    return question, answer
+
+
+def recurring_decimal_to_fraction_question(question_type=1):
+    if question_type == 1:
+        decimal = random.randint(2, 9)
+        decimal = decimal / 10
+        question = f"Convert {str(decimal)} recurring to a fraction."
+        answer = algebra.recurring_decimal_to_fraction(decimal)
+    else:
+        decimal = random.randint(20, 90)
+        while decimal % 10 == 0:
+            decimal = random.randint(20, 90)
+        decimal = decimal / 100
+        question = f"Convert {str(decimal)} recurring to a fraction."
+        answer = algebra.recurring_decimal_to_fraction(decimal)
     return question, answer

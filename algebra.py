@@ -27,3 +27,10 @@ def is_num_in_linear_sequence(num: int, n_num: int, other_num: int):
 def num_term_in_linear_sequence(num_term: int, n_num: int, other_num: int):
     term_value = num_term * n_num + other_num
     return term_value
+
+
+def recurring_decimal_to_fraction(decimal: int):
+    num_after_decimal = len(str(decimal).split(".")[1])
+    print(num_after_decimal)
+    decimal = decimal * pow(10, num_after_decimal)
+    return str(int(decimal)) + "/" + num_after_decimal * "9"
