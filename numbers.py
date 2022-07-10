@@ -54,4 +54,3 @@ def prime_factorise(n):
             prime_factors[str(int(n))] = 1
     return prime_factors
 
-print(primefactors(48))

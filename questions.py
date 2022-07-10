@@ -151,3 +151,18 @@ def is_prime_question():
         answer = "No"
     question = f"Is {str(number)} a prime number?"
     return question, answer
+
+
+def prime_factorisation_question():
+    number = random.randint(10, 100)
+    while number in numbers.primes:
+        number = random.randint(10, 100)
+    answer_dict = numbers.prime_factorise(number)
+    answer_list = []
+    for num in list(answer_dict.keys()):
+        answer_list.append(f"{num}^{str(answer_dict[num])}")
+    answer = "x".join(answer_list)
+    question = f"Write the prime factorisation of {str(number)}." \
+               f" Use indices always using ^ and order the factors from least to greatest." \
+               f"(for example, 3^3x2^1)"
+    return question, answer

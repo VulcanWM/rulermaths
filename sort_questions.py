@@ -6,7 +6,8 @@ all_questions = {
                 questions.linear_sequence_question(1),
                 questions.linear_sequence_question(2),
                 questions.linear_sequence_question(3),
-                questions.is_prime_question()
+                questions.is_prime_question(),
+                questions.prime_factorisation_question()
         ]
     },
     "KS3": {
@@ -14,7 +15,8 @@ all_questions = {
                 questions.linear_sequence_question(1),
                 questions.linear_sequence_question(2),
                 questions.linear_sequence_question(3),
-                questions.is_prime_question()
+                questions.is_prime_question(),
+                questions.prime_factorisation_question()
             ],
             "Trigonometry": [
                 questions.side_from_angle_side_question()
