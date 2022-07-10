@@ -2,11 +2,11 @@ import random
 import trigonometry
 import algebra
 import fdp
-import number
+import numbers
 
 
 def side_from_angle_side_question():
-    question_type = random.randint(1,6)
+    question_type = random.randint(1, 6)
     question_type = str(question_type)
     sides = ["opp", "adj", "hyp"]
     random.shuffle(sides)
@@ -92,7 +92,7 @@ def linear_sequence_question(question_type=1):
     while other_num == 0:
         other_num = random.randint(-9, 9)
     if question_type == "1":
-        sequence = number.create_linear_sequence(n_num=n_num, other_num=other_num)
+        sequence = numbers.create_linear_sequence(n_num=n_num, other_num=other_num)
         question = f"Find the nth term of this sequence: {sequence}"
         sign = "+"
         if other_num < 0:
@@ -101,7 +101,7 @@ def linear_sequence_question(question_type=1):
         answer = f"{str(n_num)}n {sign} {str(other_num)}"
     elif question_type == "2":
         num = random.randint(20, 90)
-        answer = number.is_num_in_linear_sequence(num=num, n_num=n_num, other_num=other_num)
+        answer = numbers.is_num_in_linear_sequence(num=num, n_num=n_num, other_num=other_num)
         sign = "+"
         if other_num < 0:
             sign = "-"
@@ -117,7 +117,7 @@ def linear_sequence_question(question_type=1):
             end = "rd"
         else:
             end = "th"
-        answer = number.num_term_in_linear_sequence(num_term=num_term, n_num=n_num, other_num=other_num)
+        answer = numbers.num_term_in_linear_sequence(num_term=num_term, n_num=n_num, other_num=other_num)
         sign = "+"
         if other_num < 0:
             sign = "-"
@@ -140,4 +140,14 @@ def recurring_decimal_to_fraction_question(question_type=1):
         decimal = decimal / 100
         question = f"Convert {str(decimal)} recurring to a fraction."
         answer = fdp.recurring_decimal_to_fraction(decimal)
+    return question, answer
+
+
+def is_prime_question():
+    number = random.randint(10, 99)
+    if number in numbers.primes:
+        answer = "Yes"
+    else:
+        answer = "No"
+    question = f"Is {str(number)} a prime number?"
     return question, answer
