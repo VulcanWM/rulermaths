@@ -5,7 +5,8 @@ import fdp
 import number
 
 
-def side_from_angle_side_question(question_type=1):
+def side_from_angle_side_question():
+    question_type = random.randint(1,6)
     question_type = str(question_type)
     sides = ["opp", "adj", "hyp"]
     random.shuffle(sides)

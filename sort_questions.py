@@ -15,12 +15,7 @@ all_questions = {
                 questions.linear_sequence_question(3)
             ],
             "Trigonometry": [
-                questions.side_from_angle_side_question(1),
-                questions.side_from_angle_side_question(2),
-                questions.side_from_angle_side_question(3),
-                questions.side_from_angle_side_question(4),
-                questions.side_from_angle_side_question(5),
-                questions.side_from_angle_side_question(6),
+                questions.side_from_angle_side_question()
             ],
             "Fractions, Decimals and Percentages": [
                 questions.recurring_decimal_to_fraction_question(1),
