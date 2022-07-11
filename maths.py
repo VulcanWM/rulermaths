@@ -1,4 +1,5 @@
 import math
+
 primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
 
 
@@ -117,3 +118,27 @@ def get_adj_from_angle_opp(angle, o, dec=2):
 def get_opp_from_angle_adj(angle, a, dec=2):
     o = a * math.tan(math.radians(angle))
     return round(o, dec)
+
+
+def highest_common_factor(x, y):
+    if x > y:
+        smaller = y
+    else:
+        smaller = x
+    for i in range(1, smaller + 1):
+        if (x % i == 0) and (y % i == 0):
+            hcf = i
+    return hcf
+
+
+def lowest_common_multiple(x, y):
+    if x > y:
+        greater = x
+    else:
+        greater = y
+    while True:
+        if (greater % x == 0) and (greater % y == 0):
+            lcm = greater
+            break
+        greater += 1
+    return lcm
