@@ -1,8 +1,5 @@
 import random
-import trigonometry
-import algebra
-import fdp
-import numbers
+import maths
 
 
 def side_from_angle_side_question():
@@ -42,12 +39,12 @@ def side_from_angle_side_question():
                f"If {side_names[side_given]} is {str(side_given_length)} and {angle_given} is {str(angle)}˚" \
                f", what is the length of {side_names[side_find]} to 2 decimal places?"
     trig_map = {
-        ('hyp', 'opp'): trigonometry.get_hyp_from_angle_opp,
-        ('hyp', 'adj'): trigonometry.get_hyp_from_angle_adj,
-        ('adj', 'opp'): trigonometry.get_adj_from_angle_opp,
-        ('adj', 'hyp'): trigonometry.get_adj_from_angle_hyp,
-        ('opp', 'adj'): trigonometry.get_opp_from_angle_adj,
-        ('opp', 'hyp'): trigonometry.get_opp_from_angle_hyp,
+        ('hyp', 'opp'): maths.get_hyp_from_angle_opp,
+        ('hyp', 'adj'): maths.get_hyp_from_angle_adj,
+        ('adj', 'opp'): maths.get_adj_from_angle_opp,
+        ('adj', 'hyp'): maths.get_adj_from_angle_hyp,
+        ('opp', 'adj'): maths.get_opp_from_angle_adj,
+        ('opp', 'hyp'): maths.get_opp_from_angle_hyp,
     }
 
     func = trig_map.get((side_find, side_given))
@@ -64,7 +61,7 @@ def x_on_both_sides_question():
     num_side_2 = random.randint(2, 10)
     while num_side_2 == num_side_1:
         num_side_2 = random.randint(2, 10)
-    answer = algebra.solve_x_on_both_sides(x_side_1, x_side_2, num_side_1, num_side_2)
+    answer = maths.solve_x_on_both_sides(x_side_1, x_side_2, num_side_1, num_side_2)
     sign_1 = "+"
     sign_2 = "+"
     if num_side_1 < 0:
@@ -92,7 +89,7 @@ def linear_sequence_question(question_type=1):
     while other_num == 0:
         other_num = random.randint(-9, 9)
     if question_type == "1":
-        sequence = numbers.create_linear_sequence(n_num=n_num, other_num=other_num)
+        sequence = maths.create_linear_sequence(n_num=n_num, other_num=other_num)
         question = f"Find the nth term of this sequence: {sequence}"
         sign = "+"
         if other_num < 0:
@@ -101,7 +98,7 @@ def linear_sequence_question(question_type=1):
         answer = f"{str(n_num)}n {sign} {str(other_num)}"
     elif question_type == "2":
         num = random.randint(20, 90)
-        answer = numbers.is_num_in_linear_sequence(num=num, n_num=n_num, other_num=other_num)
+        answer = maths.is_num_in_linear_sequence(num=num, n_num=n_num, other_num=other_num)
         sign = "+"
         if other_num < 0:
             sign = "-"
@@ -117,7 +114,7 @@ def linear_sequence_question(question_type=1):
             end = "rd"
         else:
             end = "th"
-        answer = numbers.num_term_in_linear_sequence(num_term=num_term, n_num=n_num, other_num=other_num)
+        answer = maths.num_term_in_linear_sequence(num_term=num_term, n_num=n_num, other_num=other_num)
         sign = "+"
         if other_num < 0:
             sign = "-"
@@ -132,20 +129,20 @@ def recurring_decimal_to_fraction_question(question_type=1):
         decimal = random.randint(2, 9)
         decimal = decimal / 10
         question = f"Convert {str(decimal)} recurring to a fraction."
-        answer = fdp.recurring_decimal_to_fraction(decimal)
+        answer = maths.recurring_decimal_to_fraction(decimal)
     else:
         decimal = random.randint(20, 90)
         while decimal % 10 == 0:
             decimal = random.randint(20, 90)
         decimal = decimal / 100
         question = f"Convert {str(decimal)} recurring to a fraction."
-        answer = fdp.recurring_decimal_to_fraction(decimal)
+        answer = maths.recurring_decimal_to_fraction(decimal)
     return question, answer
 
 
 def is_prime_question():
     number = random.randint(10, 99)
-    if number in numbers.primes:
+    if number in maths.primes:
         answer = "Yes"
     else:
         answer = "No"
@@ -155,9 +152,9 @@ def is_prime_question():
 
 def prime_factorisation_question():
     number = random.randint(10, 100)
-    while number in numbers.primes:
+    while number in maths.primes:
         number = random.randint(10, 100)
-    answer_dict = numbers.prime_factorise(number)
+    answer_dict = maths.prime_factorise(number)
     answer_list = []
     for num in list(answer_dict.keys()):
         answer_list.append(f"{num}^{str(answer_dict[num])}")

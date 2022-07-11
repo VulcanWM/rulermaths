@@ -2,6 +2,19 @@ import math
 primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
 
 
+def solve_x_on_both_sides(x_side_1: int, x_side_2: int, num_side_1: int, num_side_2: int):
+    x_left = x_side_1 - x_side_2
+    num_left = num_side_2 - num_side_1
+    answer = num_left / x_left
+    return round(answer, 2)
+
+
+def recurring_decimal_to_fraction(decimal: float):
+    num_after_decimal = len(str(decimal).split(".")[1])
+    decimal = decimal * pow(10, num_after_decimal)
+    return str(int(decimal)) + "/" + num_after_decimal * "9"
+
+
 def create_linear_sequence(n_num: int, other_num: int):
     sequence = []
     for i in range(1, 6):
@@ -54,3 +67,53 @@ def prime_factorise(n):
             prime_factors[str(int(n))] = 1
     return prime_factors
 
+
+def get_angle_from_opp_hyp(o, h, dec=2):
+    num = o / h
+    radian = math.asin(num)
+    degrees = math.degrees(radian)
+    return round(degrees, dec)
+
+
+def get_angle_from_opp_adj(o, a, dec=2):
+    num = o / a
+    radian = math.atan(num)
+    degrees = math.degrees(radian)
+    return round(degrees, dec)
+
+
+def get_angle_from_adj_hyp(a, h, dec=2):
+    num = a / h
+    radian = math.acos(num)
+    degrees = math.degrees(radian)
+    return round(degrees, dec)
+
+
+def get_adj_from_angle_hyp(angle, h, dec=2):
+    a = h * math.cos(math.radians(angle))
+    return round(a, dec)
+
+
+def get_hyp_from_angle_adj(angle, a, dec=2):
+    h = a / math.cos(math.radians(angle))
+    return round(h, dec)
+
+
+def get_opp_from_angle_hyp(angle, h, dec=2):
+    o = h * math.sin(math.radians(angle))
+    return round(o, dec)
+
+
+def get_hyp_from_angle_opp(angle, o, dec=2):
+    h = o / math.sin(math.radians(angle))
+    return round(h, dec)
+
+
+def get_adj_from_angle_opp(angle, o, dec=2):
+    a = o / math.tan(math.radians(angle))
+    return round(a, dec)
+
+
+def get_opp_from_angle_adj(angle, a, dec=2):
+    o = a * math.tan(math.radians(angle))
+    return round(o, dec)
