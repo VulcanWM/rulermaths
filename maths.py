@@ -120,7 +120,7 @@ def get_opp_from_angle_adj(angle, a, dec=2):
     return round(o, dec)
 
 
-def highest_common_factor(x, y):
+def highest_common_factor_2(x, y):
     if x > y:
         smaller = y
     else:
@@ -131,7 +131,20 @@ def highest_common_factor(x, y):
     return hcf
 
 
-def lowest_common_multiple(x, y):
+def highest_common_factor_3(x, y, z):
+    if x < y and x < z:
+        smallest = x
+    elif y < z:
+        smallest = y
+    else:
+        smallest = z
+    for i in range(1, smallest + 1):
+        if (x % i == 0) and (y % i == 0) and (z % i == 0):
+            hcf = i
+    return hcf
+
+
+def lowest_common_multiple_2(x, y):
     if x > y:
         greater = x
     else:
@@ -142,3 +155,18 @@ def lowest_common_multiple(x, y):
             break
         greater += 1
     return lcm
+
+
+def lowest_common_multiple_3(x, y, z):
+    if x > y and x > z:
+        largest = x
+    if y > x > z:
+        largest = y
+    if z > x and z > y:
+        largest = z
+    while True:
+        if (largest % x == 0) and (largest % y == 0) and (largest % z == 0):
+            lcm = largest
+            break
+        largest += 1
+    return largest
