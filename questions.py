@@ -1,5 +1,6 @@
 import random
 import maths
+import lists
 
 
 def side_from_angle_side_question():
@@ -163,3 +164,20 @@ def prime_factorisation_question():
                f" Use indices always using ^ and order the factors from least to greatest." \
                f"(for example, 3^3x2^1)"
     return question, answer
+
+
+def lowest_common_multiple_questions():
+    question_number = random.randint(1,2)
+    if question_number == 1:
+        number1 = random.randint(3,11)
+        number2 = random.randint(3,11)
+        while number2 == number1:
+            number2 = random.randint(3, 11)
+        colour1 = random.choice(lists.colours)
+        colour2 = random.choice(lists.colours)
+        while colour2 == colour1:
+            colour2 = random.choice(lists.colours)
+        question = f"A child is arranging green blocks in groups of {str(number1)}" \
+                   f" and purple blocks in groups of {str(number2)}. " \
+                   "If she has the same number of green and purple blocks, " \
+                   "what is the smallest number of each colour that she could have?"
