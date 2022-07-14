@@ -167,39 +167,50 @@ def prime_factorisation_question():
 
 
 def lowest_common_multiple_questions():
-    question_number = random.randint(1, 1)
-    if question_number == 1:
-        number1 = random.randint(3, 11)
+    question_number = random.randint(1, 2)
+    number1 = random.randint(3, 11)
+    number2 = random.randint(3, 11)
+    while number2 == number1:
         number2 = random.randint(3, 11)
-        while number2 == number1:
-            number2 = random.randint(3, 11)
-        colour1 = random.choice(lists.colours)
+    colour1 = random.choice(lists.colours)
+    colour2 = random.choice(lists.colours)
+    while colour2 == colour1:
         colour2 = random.choice(lists.colours)
-        while colour2 == colour1:
-            colour2 = random.choice(lists.colours)
+    if question_number == 1:
         question = f"A child is arranging {colour1} blocks in groups of {str(number1)}" \
                    f" and {colour2} blocks in groups of {str(number2)}. " \
                    f"If she has the same number of {colour1} and {colour2} blocks, " \
                    f"what is the smallest number of each colour that she could have?"
-        answer = maths.lowest_common_multiple_2(number1, number2)
+    else:
+        stationary1 = random.choice(lists.stationary)
+        stationary2 = random.choice(lists.stationary)
+        while stationary2 == stationary1:
+            stationary2 = random.choice(lists.stationary)
+        name = random.choice(lists.names)
+        question = f"{name} is buying {stationary1} and {stationary2} from the store. " \
+                   f"{stationary1.capitalize()} come in packages of {str(number1)}, " \
+                   f"but {stationary2} are sold in packages of {str(number2)}. " \
+                   f"If {name} wishes to purchase the same number of {stationary1} as {stationary2}, " \
+                   f"what is the smallest number of {stationary2} that he can buy?"
+    answer = maths.lowest_common_multiple_2(number1, number2)
     return question, answer
 
 
 def highest_common_factor_question():
     question_number = random.randint(1, 1)
-    if question_number == 1:
-        main_number = random.randint(3, 11)
-        number1 = random.randint(2, 7)
+    main_number = random.randint(3, 11)
+    number1 = random.randint(2, 7)
+    number2 = random.randint(3, 7)
+    while number2 == number1:
         number2 = random.randint(3, 7)
-        while number2 == number1:
-            number2 = random.randint(3, 7)
-        number1 = main_number * number1
-        number2 = main_number * number2
-        question = f"A florist has {number1} tulips and {number2} carnations. " \
+    number1 = main_number * number1
+    number2 = main_number * number2
+    if question_number == 1:
+        question = f"A florist has {str(number1)} tulips and {str(number2)} carnations. " \
                    "If the florist wants to create identical bouquets without any leftover flowers" \
                    ", what is the greatest number of bouquets the florist can make?"
-        answer = maths.highest_common_factor_2(number1, number2)
+    answer = maths.highest_common_factor_2(number1, number2)
     return question, answer
 
 
-print(highest_common_factor_question())
+print(lowest_common_multiple_questions())
