@@ -182,6 +182,24 @@ def lowest_common_multiple_questions():
                    f"If she has the same number of {colour1} and {colour2} blocks, " \
                    f"what is the smallest number of each colour that she could have?"
         answer = maths.lowest_common_multiple_2(number1, number2)
-        return question, answer
+    return question, answer
 
-print(lowest_common_multiple_questions())
+
+def highest_common_factor_question():
+    question_number = random.randint(1, 1)
+    if question_number == 1:
+        main_number = random.randint(3, 11)
+        number1 = random.randint(2, 7)
+        number2 = random.randint(3, 7)
+        while number2 == number1:
+            number2 = random.randint(3, 7)
+        number1 = main_number * number1
+        number2 = main_number * number2
+        question = f"A florist has {number1} tulips and {number2} carnations. " \
+                   "If the florist wants to create identical bouquets without any leftover flowers" \
+                   ", what is the greatest number of bouquets the florist can make?"
+        answer = maths.highest_common_factor_2(number1, number2)
+    return question, answer
+
+
+print(highest_common_factor_question())
