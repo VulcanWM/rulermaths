@@ -125,6 +125,7 @@ def highest_common_factor_2(x, y):
         smaller = y
     else:
         smaller = x
+    hcf = 1
     for i in range(1, smaller + 1):
         if (x % i == 0) and (y % i == 0):
             hcf = i
@@ -138,6 +139,7 @@ def highest_common_factor_3(x, y, z):
         smallest = y
     else:
         smallest = z
+    hcf = 1
     for i in range(1, smallest + 1):
         if (x % i == 0) and (y % i == 0) and (z % i == 0):
             hcf = i
@@ -158,6 +160,7 @@ def lowest_common_multiple_2(x, y):
 
 
 def lowest_common_multiple_3(x, y, z):
+    largest = 1
     if x > y and x > z:
         largest = x
     if y > x > z:
@@ -169,4 +172,25 @@ def lowest_common_multiple_3(x, y, z):
             lcm = largest
             break
         largest += 1
-    return largest
+    return lcm
+
+
+def is_natural_number(number: int):
+    if number > 0 and number % 1 == 0:
+        return True
+    else:
+        return False
+
+
+def is_integer(number: float):
+    if number % 1 == 0:
+        return True
+    else:
+        return False
+
+
+def is_whole_number(number: float):
+    if number > -1 and number % 1 == 0:
+        return True
+    else:
+        return False

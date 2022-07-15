@@ -234,3 +234,12 @@ def highest_common_factor_question():
                    f", with no string left over. What is the greatest length, in {unit}, that she can make them?"
     answer = maths.highest_common_factor_2(number1, number2)
     return question, answer
+
+
+def classify_numbers_question():
+    number_types = ["natural", "integer", "whole", "real", "rational", "irrational"]
+    numbers = []
+    number1 = random.randint(2, 15)
+    while number1 == 4 or number1 == 9:
+        number1 = random.randint(2, 15)
+    numbers.append(number1)
