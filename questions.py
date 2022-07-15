@@ -197,7 +197,7 @@ def lowest_common_multiple_questions():
 
 
 def highest_common_factor_question():
-    question_number = random.randint(1, 1)
+    question_number = random.randint(1, 2)
     main_number = random.randint(3, 11)
     number1 = random.randint(2, 7)
     number2 = random.randint(3, 7)
@@ -209,8 +209,13 @@ def highest_common_factor_question():
         question = f"A florist has {str(number1)} tulips and {str(number2)} carnations. " \
                    "If the florist wants to create identical bouquets without any leftover flowers" \
                    ", what is the greatest number of bouquets the florist can make?"
+    else:
+        name = random.choice(lists.names)
+        unit = random.choice(lists.units)
+        question = f"{name} has two pieces of string, " \
+                   f"one {str(number1)} {unit} long and the other {str(number2)} {unit} long. " \
+                   f"For a craft project, she wants to cut them up to " \
+                   f"produce many pieces of string that are all of the same length" \
+                   f", with no string left over. What is the greatest length, in {unit}, that she can make them?"
     answer = maths.highest_common_factor_2(number1, number2)
     return question, answer
-
-
-print(lowest_common_multiple_questions())
