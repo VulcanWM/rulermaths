@@ -18,7 +18,7 @@ names = [
     "Alice",
     "Alexander",
     "Brett",
-    "Becca"
+    "Becca",
     "Charlie",
     "Cinderella",
     "Daniel",
@@ -42,4 +42,25 @@ units = [
     "metres",
     "centimetres",
     "millimetre"
+]
+
+subjects = [
+    "maths",
+    "english",
+    "biology",
+    "chemistry",
+    "physics",
+    "history",
+    "geography",
+    "music",
+    "drama"
+]
+
+family_members = [
+    "mum",
+    "dad",
+    "brother",
+    "sister",
+    "dog",
+    "cat"
 ]
