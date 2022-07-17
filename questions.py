@@ -238,8 +238,26 @@ def highest_common_factor_question():
 
 def classify_numbers_question():
     number_types = ["natural", "integer", "whole", "real", "rational", "irrational"]
+    answer_type = random.choice(number_types)
+    answers = []
     numbers = []
     number1 = random.randint(2, 15)
     while number1 == 4 or number1 == 9:
         number1 = random.randint(2, 15)
-    numbers.append(number1)
+    numbers.append(f"√{str(number1)}")
+    if answer_type == "irrational" or answer_type == "real":
+        answers.append(f"√{str(number1)}")
+    number2 = random.randint(101, 999)
+    while number2 % 100 == 0:
+        number2 = random.randint(101, 999)
+    numbers.append(str(number2))
+    if answer_type == "real" or answer_type == "rational":
+        answers.append(str(number2))
+    # add 0, a number bigger than 0, a number less than 0, a fraction that doesn't simplify to 1
+    question = f"Which of these numbers are {answer_type}: {', '.join(numbers)}\n" \
+               f"Separate your answer by a comma only (no space) and " \
+               f"type in your answers in the order in the list of numbers given."
+    return question, ",".join(answers)
+
+
+print(classify_numbers_question())
