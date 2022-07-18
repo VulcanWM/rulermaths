@@ -9,7 +9,8 @@ all_questions = {
             questions.is_prime_question(),
             questions.prime_factorisation_question(),
             questions.lowest_common_multiple_questions(),
-            questions.highest_common_factor_question()
+            questions.highest_common_factor_question(),
+            questions.compare_numbers_question()
         ]
     },
     "KS3": {
@@ -20,7 +21,8 @@ all_questions = {
             questions.is_prime_question(),
             questions.prime_factorisation_question(),
             questions.lowest_common_multiple_questions(),
-            questions.highest_common_factor_question()
+            questions.highest_common_factor_question(),
+            questions.compare_numbers_question()
         ],
         "Trigonometry": [
             questions.side_from_angle_side_question()

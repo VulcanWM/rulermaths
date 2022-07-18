@@ -5,10 +5,6 @@
 # random_topic = random.choice(list(all_functions.keys()))
 # random_func = random.choice(all_functions[random_topic])
 # print(random_func)
-from questions import compare_numbers_question
-
-print(compare_numbers_question())
-
 from app import app
 
 if __name__ == "__main__":
