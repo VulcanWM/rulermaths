@@ -161,8 +161,7 @@ def prime_factorisation_question():
         answer_list.append(f"{num}^{str(answer_dict[num])}")
     answer = "x".join(answer_list)
     question = f"Write the prime factorisation of {str(number)}." \
-               f" Use indices always using ^ and order the factors from least to greatest." \
-               f"(for example, 3^3x2^1)"
+               f" Use indices if needed"
     return question, answer
 
 
@@ -254,10 +253,23 @@ def classify_numbers_question():
     if answer_type == "real" or answer_type == "rational":
         answers.append(str(number2))
     # add 0, a number bigger than 0, a number less than 0, a fraction that doesn't simplify to 1
-    question = f"Which of these numbers are {answer_type}: {', '.join(numbers)}\n" \
-               f"Separate your answer by a comma only (no space) and " \
-               f"type in your answers in the order in the list of numbers given."
+    question = f"Which of these numbers are {answer_type}: {', '.join(numbers)}\n"
     return question, ",".join(answers)
 
 
-print(classify_numbers_question())
+def compare_numbers_question():
+    fraction_den = random.randint(5, 9)
+    fraction_nom = random.randint(1, fraction_den-1)
+    fraction = fraction_nom / fraction_den
+    percentage = random.randint(1, 99)
+    while percentage == fraction:
+        percentage = random.randint(1, 99)
+    decimal = random.randint(1,99) / 100
+    while decimal == (percentage / 100) or decimal == fraction:
+        decimal = random.randint(1, 99) / 100
+    question = f"Write these numbers in ascending order:\n{str(fraction_nom)}/{str(fraction_den)}," \
+               f" {str(percentage)}%, {str(decimal)}"
+    answer = ", ".join(maths.compare_numbers_3(fraction_nom=fraction_nom, fraction_den=fraction_den,
+                                               decimal=decimal, percentage=percentage))
+    return question, answer
+

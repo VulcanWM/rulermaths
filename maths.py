@@ -194,3 +194,29 @@ def is_whole_number(number: float):
         return True
     else:
         return False
+
+
+def compare_numbers_2(number1: float, number2: float):
+    if number1 == number2:
+        sign = "="
+    elif number1 > number2:
+        sign = ">"
+    else:
+        sign = "<"
+    return sign
+
+
+def compare_numbers_3(fraction_nom: int, fraction_den: int, decimal: float, percentage: float):
+    percentage_num = percentage / 100
+    fraction = fraction_nom / fraction_den
+    numbers = [fraction, decimal, percentage_num]
+    sorted_numbers = sorted(numbers)
+    real_number_list = []
+    for i in range(0,3):
+        if sorted_numbers[i] == percentage_num:
+            real_number_list.append(f"{str(int(sorted_numbers[i]*100))}%")
+        elif sorted_numbers[i] == fraction_nom / fraction_den:
+            real_number_list.append(f"{str(fraction_nom)}/{str(fraction_den)}")
+        else:
+            real_number_list.append(str(sorted_numbers[i]))
+    return real_number_list
