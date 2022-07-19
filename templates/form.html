@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+   <form method="POST" action="/form">
+       {% for topic in all_questions['KS3'].keys() %}
+            <input type="checkbox" id="{{topic}}" name="{{topic}}" value="{{topic}}">
+            <label for="{{topic}}">{{topic}}</label><br>
+        {% endfor %}
+        <button>submit</button>
+   </form>
+</body>
+</html>
