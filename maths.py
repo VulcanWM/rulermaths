@@ -120,6 +120,24 @@ def get_opp_from_angle_adj(angle, a, dec=2):
     return round(o, dec)
 
 
+def get_angle_from_opp_hyp(opp, hyp, dec=2):
+    angle_radians = math.asin(opp / hyp)
+    angle_degrees = math.degrees(angle_radians)
+    return round(angle_degrees, dec)
+
+
+def get_angle_from_opp_adj(opp, adj, dec=2):
+    angle_radians = math.tan(opp / adj)
+    angle_degrees = math.degrees(angle_radians)
+    return round(angle_degrees, dec)
+
+
+def get_angle_from_adj_hyp(adj, hyp, dec=2):
+    angle_radians = math.tan(adj / hyp)
+    angle_degrees = math.degrees(angle_radians)
+    return round(angle_degrees, dec)
+
+
 def highest_common_factor_2(x, y):
     if x > y:
         smaller = y
@@ -212,9 +230,9 @@ def compare_numbers_3(fraction_nom: int, fraction_den: int, decimal: float, perc
     numbers = [fraction, decimal, percentage_num]
     sorted_numbers = sorted(numbers)
     real_number_list = []
-    for i in range(0,3):
+    for i in range(0, 3):
         if sorted_numbers[i] == percentage_num:
-            real_number_list.append(f"{str(int(sorted_numbers[i]*100))}%")
+            real_number_list.append(f"{str(int(sorted_numbers[i] * 100))}%")
         elif sorted_numbers[i] == fraction_nom / fraction_den:
             real_number_list.append(f"{str(fraction_nom)}/{str(fraction_den)}")
         else:
