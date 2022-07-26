@@ -69,27 +69,6 @@ def prime_factorise(n):
     return prime_factors
 
 
-def get_angle_from_opp_hyp(o, h, dec=2):
-    num = o / h
-    radian = math.asin(num)
-    degrees = math.degrees(radian)
-    return round(degrees, dec)
-
-
-def get_angle_from_opp_adj(o, a, dec=2):
-    num = o / a
-    radian = math.atan(num)
-    degrees = math.degrees(radian)
-    return round(degrees, dec)
-
-
-def get_angle_from_adj_hyp(a, h, dec=2):
-    num = a / h
-    radian = math.acos(num)
-    degrees = math.degrees(radian)
-    return round(degrees, dec)
-
-
 def get_adj_from_angle_hyp(angle, h, dec=2):
     a = h * math.cos(math.radians(angle))
     return round(a, dec)
